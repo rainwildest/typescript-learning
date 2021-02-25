@@ -5,7 +5,7 @@
 // const s2 = Symbol();
 // console.log(s2);
 
-// 最后结果是为false 
+// 最后结果是为false
 // console.log(s1 === s2);
 
 // 它会先在内部调用toString把 123 转换为string，然后再给它起这个名字
@@ -29,11 +29,11 @@ console.log(info);
 */
 
 
-const s5 = Symbol('name');
+const s5 = Symbol("name");
 const info2 = {
-  [s5]: 'rainwildest',
+  [s5]: "rainwildest",
   age: 18,
-  sex: 'man'
+  sex: "man"
 }
 /*
 console.log(info2);
@@ -49,17 +49,17 @@ console.log(info2);
 // 以下四种方法不能获取到 Symbol 的键
 // 第一种：
 for (const key in info2) {
-  console.log('第一种：', key);
+  console.log("第一种：", key);
 }
 
 // 第二种：
-console.log('第二种：', Object.keys(info2));
+console.log("第二种：", Object.keys(info2));
 
 // 第三种：
-console.log('第三种：', Object.getOwnPropertyNames(info2));
+console.log("第三种：", Object.getOwnPropertyNames(info2));
 
 // 第四种：
-console.log('第四种：', JSON.stringify(info2));
+console.log("第四种：", JSON.stringify(info2));
 /* ============================================= */
 
 // 以下两种方法可以获取到Symbol的键
@@ -70,22 +70,22 @@ console.log(Reflect.ownKeys(info2));
 
 // Symbol.for()、Symbol.keyFor() 作用相似
 // 两者不会相等
-const s6 = Symbol('rainwildest');
-const s7 = Symbol('rainwildest');
+const s6 = Symbol("rainwildest");
+const s7 = Symbol("rainwildest");
 
 // Symbol.for()会在全局去查找，如果存在则直接返回，反之则创建
-const s8 = Symbol.for('rainwildest');
-const s9 = Symbol.for('rainwildest');
-const s10 = Symbol.for('haha');
+const s8 = Symbol.for("rainwildest");
+const s9 = Symbol.for("rainwildest");
+const s10 = Symbol.for("haha");
 // console.log(s8 === s9); 则是相等的；console.log(s9 === s10);则是不相等的
 // 全局范围包含当前页面、iframe
 
 // Symbol.keyFor()得是Symbol.for()全局注册的Symbol值
-console.log('keyFor:', Symbol.keyFor(s10))
+console.log("keyFor:", Symbol.keyFor(s10))
 
 const obj1 = {
   [Symbol.hasInstance](otherObj: any) {
     console.log(otherObj)
   }
 }
-console.log({ a: 'a' } instanceof <any>obj1)
+console.log({ a: "a" } instanceof (obj1 as any))

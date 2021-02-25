@@ -5,7 +5,7 @@
   // let bool: boolean = false;
 */
 
-//创建后再赋值
+// 创建后再赋值
 let bool: boolean;
 bool = true;
 
@@ -20,7 +20,7 @@ num = 0x7b;
 
 // 字符串类型
 let str: string;
-str = 'abc';
+str = "abc";
 str = `数值是${num}`;
 console.log(str);
 
@@ -31,14 +31,14 @@ let arr: number[];
 arr = [5];
 
 // 写法2：
-let arr2: Array<number>;
+let arr2: number[];
 
 // 联合类型：数组情况得加括号
 let arr3: (string | number)[];
 
 // 元组类型：固定长度，固定顺序
 let tuple: [string, number, boolean];
-tuple = ['a', 1, true];
+tuple = ["a", 1, true];
 
 // 枚举类型
 enum Roles {
@@ -47,19 +47,19 @@ enum Roles {
   USER
 }
 
-console.log('枚举类型（拿出相应的索引）：', Roles.SUPER_ADMIN);
-console.log('枚举类型（拿出相应的名称）：', Roles[0]);
+console.log("枚举类型（拿出相应的索引）：", Roles.SUPER_ADMIN);
+console.log("枚举类型（拿出相应的名称）：", Roles[0]);
 
 // any 类型
 let value: any;
-value = 'abc';
+value = "abc";
 value = 123;
 value = false;
-const arr4: any[] = [1, 'a'];
+const arr4: any[] = [1, "a"];
 
 // void类型(undefined 可以赋值给 void 类型)
 const consoleText = (text: string): void => {
-  console.log(text)
+  console.log(text);
 }
 
 let v: void;
@@ -81,25 +81,25 @@ const errorFunc = (message: string): never => {
 
 const infiniteFunc = (): never => {
   while (true) { }
-}
+};
 
 // object 类型
 let obj = {
-  name: 'rainwildest'
+  name: "rainwildest"
 }
 
 let obj2 = obj;
-obj2.name = 'wildest'
-console.log(obj)
+obj2.name = "wildest";
+console.log(obj);
 function getObject(obj: Object): void {
-  console.log(obj)
+  console.log(obj);
 }
-getObject(obj2)
+getObject(obj2);
 
 // 类型断言
 const getLength = (target: string | number): number => {
-  if ((<string>target).length || (target as string).length === 0) {
-    return (<string>target).length;
+  if ((target as string).length || (target as string).length === 0) {
+    return (target as string).length;
   } else {
     return target.toString().length;
   }
